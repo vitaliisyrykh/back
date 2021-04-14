@@ -6,16 +6,16 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       body: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
       deathLine: {
-        field:'death_line',
+        field: 'death_line',
         type: Sequelize.DATE,
-        allowNull: true
+        allowNull: true,
       },
       isDone: {
         field: 'is_done',
@@ -24,18 +24,18 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       createdAt: {
-        field:'created_at',
+        field: 'created_at',
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
-        field:'updated_at',
+        field: 'updated_at',
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('tasks');
-  }
+  },
 };
