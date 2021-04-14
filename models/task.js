@@ -3,18 +3,17 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class task extends Model {
+  class Task extends Model {
     
     static associate(models) {
     
     }
   };
-  task.init({
+  Task.init({
     body: {
       type:DataTypes.STRING,
       allowNull: false,
       validate:{
-        notNull: true,
         notEmpty:true
       }
     },
@@ -29,8 +28,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'task',
-    tableName: 'task'
+    modelName: 'Task',
+    tableName: 'Tasks',
+    underscored: true,
   });
-  return task;
+  return Task;
 };

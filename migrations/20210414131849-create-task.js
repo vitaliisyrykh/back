@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('tasks', {
+    await queryInterface.createTable('Tasks', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -15,7 +15,7 @@ module.exports = {
       deathLine: {
         field:'death_line',
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: true
       },
       isDone: {
         field: 'is_done',
@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       createdAt: {
-        field:'crated_at',
+        field:'created_at',
         allowNull: false,
         type: Sequelize.DATE
       },
