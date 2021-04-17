@@ -3,9 +3,9 @@ const { Task } = require('../models');
 module.exports.taskCreated = async (req, res, next) => {
   try {
     const {
-      body:{ body },
+      body: { body },
     } = req;
-    const taskCreated = await Task.create( {body} );
+    const taskCreated = await Task.create({ body });
     res.status(201).send({ data: taskCreated });
   } catch (err) {
     next(err);
@@ -26,10 +26,13 @@ module.exports.updateTask = async (req, res, next) => {
       body: { body },
       params: { idTask },
     } = req;
-    const updatedTask = await Task.update({body}, {
-      where: { id: idTask },
-      returning: true,
-    });
+    const updatedTask = await Task.update(
+      { body },
+      {
+        where: { id: idTask },
+        returning: true,
+      }
+    );
     res.status(201).send({ data: updatedTask });
   } catch (err) {
     next(err);
