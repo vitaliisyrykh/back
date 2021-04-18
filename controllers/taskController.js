@@ -26,7 +26,7 @@ module.exports.updateTask = async (req, res, next) => {
       body: { body },
       params: { idTask },
     } = req;
-    const updatedTask = await Task.update(
+    const [rows,updatedTask] = await Task.update(
       { body },
       {
         where: { id: idTask },
