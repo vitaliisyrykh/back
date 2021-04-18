@@ -58,7 +58,7 @@ module.exports.deleteTask = async (req, res, next) => {
     } = req;
     const taskDelete = await Task.destroy({
       where: {
-        id: idTask,
+        id: Number(idTask),
       },
     });
     res.status(201).send({ data: taskDelete });
